@@ -1,0 +1,238 @@
+/* CSS for clankiller.de
+ * (c) 2015 by Kai Boenke [code@boenke.info]
+ */
+
+/* Custom Fonts */
+@font-face{
+	font-family: "Munro Regular";
+	src: url("Munro.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: "pixelmix";
+	src: url("pixelmix.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Page-Settings */
+html{
+	height: 100%;
+}
+body{
+	margin: 0;
+	padding: 0;
+	background-image: url("background.jpg");
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-color: white;
+	font-family: "pixelmix";
+	color: black;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+/* Top Element */
+header{
+	position: fixed;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: black;
+	color: white;
+}
+header div{
+	position: absolute;
+	font-family: "Munro Regular";
+}
+
+/* Side-Navigation */
+aside summary{
+	font-weight: bold;
+}
+aside ul{
+	padding: 0;
+	list-style-type: none;
+}
+aside input{
+	border: 1px solid black;
+}
+
+/* Content */
+main div.loading{
+	width: 100%;
+	text-align: center;
+}
+main ul{
+	padding: 0;
+	list-style-type: none;
+}
+main li{
+}
+main div.headline{
+	background: black;
+	color: white;
+}
+main div.content{
+	hyphens: auto;
+	text-align: justify;
+}
+
+footer{
+	height: 20px;
+	background-image: url("Three14.png");
+	background-repeat: no-repeat;
+	background-position: center right 2px;
+}
+
+/* Desktop Mode */
+@media only screen and (min-width: 601px){
+	body{
+		height: 100%;
+		font-size: 8px;
+		background-position: top 14px left; /* Offset matching height of <header> */
+		background-attachment: fixed;
+	}
+	
+	header{
+		height: 14px;
+		background-image: url("header.jpg");
+		background-repeat: no-repeat;
+		background-position: left 3px center;
+		font-size: 10px;
+	}
+	header .headline{
+		left: 68px; /* Offset matching width of <header> background */
+		bottom: 0px;
+	}
+	header .copyright{
+		right: 1px;
+		bottom: 0px;
+	}
+	
+	aside{
+		position: fixed;
+		padding-top: 360px; /* Offset matching height of <body> background */
+		padding-left: 20px;
+		max-width: 300px;
+	}
+	aside details:hover{
+		cursor: pointer;
+	}
+	aside summary{
+		font-size: 12px;
+	}
+	
+	main{
+		min-height: 100%;
+		margin-left: 310px; /* Offset slightly higher then width of <aside> */
+		margin-bottom: -20px; /* Matching height of <footer> */
+		border-left: 1px dotted black;
+	}
+	main div.loading{
+		padding-top: 120px;
+	}
+	main ul{
+		list-style-image: url("headline.png");
+		list-style-position: outside;
+		margin-left: 20px;
+	}
+	main li{
+		padding-top: 60px; /* Tripple height of <header> */
+	}
+	main div.headline{
+		position: relative;
+		width: 100%;
+		height: 20px;
+		margin-left: -10px;
+		padding-left: 10px; /* Offset matching margin-left */
+		display: inline-block;
+	}
+	main div.title{
+		position: absolute;
+		left: 10px; /* Offset matching margin-left of <div.headline> */
+		bottom: 2px;
+		font-size: 12px;
+	}
+	main div.timestamp{
+		position: absolute;
+		right: 1px;
+		bottom: 2px;
+	}
+	main div.content{
+		padding: 3px 0;
+	}
+}
+
+/* Mobile Mode */
+@media only screen and (max-width: 600px){
+	body{
+		font-size: 10px;
+		background-position: top left;
+		background-attachment: fixed;
+	}
+	
+	header{
+		visibility: hidden;
+	}
+	
+	aside{
+		position: fixed;
+		display: flex;
+		left: 0;
+		top: 0;
+		padding-left: 63px;
+		min-height: 14px;
+		width: 100%;
+		background-image: url("header.jpg");
+		background-repeat: no-repeat;
+		background-position: left 1px top 1px;
+		background-color: black;
+		color: white;
+	}
+	aside details{
+		padding: 0.1em 0.4em;
+	}
+	
+	main{
+		width: 100vh;
+		margin-top: 120px; /* Offset 1/3 of background-picture height. */
+	}
+	main div.loading{
+		position: absolute;
+		bottom: 50px;
+	}
+	main li{
+		background: rgba(255, 255, 255, 0.6);;
+		margin-bottom: 30px; /* Offset 1/4 of main top-margin */
+	}
+	main div.headline{
+		background: black;
+		color: white;
+		padding: 0.2em;
+	}
+	main div.title{
+		font-weight: bold;
+	}
+	main div.timestamp{
+		visibility: hidden;
+	}
+	main div.content{
+		margin: 0.1em 0;
+	}
+	
+	footer{
+		position: relative;
+		left: 0;
+		bottom: 0;
+		height: 20px;
+		width: 100vh;
+	}
+}
